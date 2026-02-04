@@ -1,0 +1,18 @@
+str1 ="'Не верю77!' ск431аза7л - К. Стани57славский"
+res1 = ''
+res2 =''
+for i1 in str1:
+    if i1.isdigit():
+        res2 = res2 + i1
+    else:
+        res1 = res1 + i1.upper()
+print(res1)
+int1 = list(map(int, res2))
+s = sum(int1)
+
+input1 = list(map(str, res1))
+print(input1.pop(18) and input1.pop(18))
+print(input1.insert(10, "-") and input1.insert(10, " "))
+print(input1)
+res = "".join(input1)
+print(f"{res} {s}")
