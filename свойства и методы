@@ -1,0 +1,15 @@
+class Mathe:
+    name = "задача"
+
+    @staticmethod
+    def mystatic():
+        print((5*5)/2)
+
+class Ymn_del(Mathe):
+    pass
+
+print(Mathe.mystatic())
+obj = Mathe
+print(obj.mystatic())
+k = Ymn_del
+print(k.mystatic())
