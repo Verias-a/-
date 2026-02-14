@@ -1,0 +1,84 @@
+# class Slojen:
+#     def __init__(self, num):
+#         self.num = num
+#
+#
+#     def __add__(self, other):
+#         return self.num + other
+#
+# s = Slojen("primer")
+# print(s + " now")
+#
+#
+# class Bank:
+#     def __init__(self,balance):
+#         self.balance = balance
+#     def __add__(self, other): #Операция сложения остается слева, STR и (Число или текст)
+#         return Bank(self.balance + other)
+# b = Bank(1000)
+# print(b.balance + 500)
+# new_b = b + 500
+# print(new_b.balance)
+#
+#
+# class Bank:
+#     def __init__(self,balance):
+#         self.balance = balance
+#     def __radd__(self, other): # меняет местами операции сложения на право. (Число или текст) и теперь STR
+#         return Bank(self.balance + other)
+# b = Bank(1000)
+# new_b = 1000 + b
+# print(new_b.balance)
+
+# class Miny:
+#     def __init__(self,chet):
+#         self.chet = chet
+#     def __rsub__(self, other):          # Можно поменять с Sub на Rsub тогда в принте выводит не (a - i) a (i - a)
+#         return self.chet - other
+# a = Miny(100)
+# for i in range(11):
+#     print(i - a)
+
+
+# class Umno:
+#     def __init__(self, ym):
+#         self.ym = ym
+#     def __mul__(self, other):
+#         return self.ym * other      # Если менять знак с умножения * на -, +, %, / то вся команда примет и будет подставлять их
+# c = Umno(5)
+# print(c * 3)
+# print(c * 10 - 20)
+# print(c * 10 + c * 2 )
+# print(c * " nomer")
+
+# class Delmod:
+#     def __init__(self, de):
+#         self.de = de
+#     def __divmod__(self, other):
+#         return self.de / other
+# a = divmod(100, 50)
+# print(a)
+
+# class Del:
+#     def __init__(self, de):
+#         self.de = de
+#     def __mod__(self, other):
+#         return self.de % other
+# g = Del(2)
+# print(g % 10)
+
+# class Vlevo:
+#     def __init__(self, pe):
+#         self.pe = pe
+#     def __lshift__(self, other):
+#         return self.pe << other
+# a = Vlevo(1)
+# print(a << 3) # не понятно как работает сдвиг
+
+# class AndI:
+#     def __init__(self, andd):
+#         self.andd = andd
+#     def __and__(self, other):
+#         return self.andd ^ other
+# a =  AndI("ghost")
+# print("ghost" or "wwwwoooo")
