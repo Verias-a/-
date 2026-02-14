@@ -1,0 +1,50 @@
+# massiv = [[0]*3 for i in range(3)]
+# for row in massiv:
+#     print(''.join(map(str, row)))
+
+
+# dvu_mer = [[0]* 3]*3
+# for i in dvu_mer:
+#     print(i)
+
+# matrix = [
+#     [1,2,3],
+#     [4,5,6],
+#     [7,8,9]
+# ]
+# for g in matrix:
+#     print(''.join(map(str, g)))
+
+# matrix1 = [[i*3 + j for j in range(3)] for i in range(3)]
+# for rts in matrix1:
+#     print(rts)
+
+
+# matrix2 = [
+#     [1,2,3],
+#     [4,5,6],
+#     [7,8,9]
+# ]
+# print(matrix2[2])   # выводим строку
+# for r in matrix2:
+    # print(r[1])   # Выводим столб по середине
+
+
+matr = [
+    [7,5,3],
+    [4,1,6],
+    [8,9,2]
+]
+# max_elem = max(max(i) for i in matr)
+# print("Максимальное значение:",max_elem)
+# del matr[2][2]  # удаляем 2 из матрицы
+# matr[0].sort()
+# for i in matr:
+#     print(' '.join(map(str, i)))
+
+for i in matr:
+    suma = sum(i)
+    print(suma)     # складывает строку и получает сумму, одной строки!
+
+suma1 = sum(sum(i) for i in matr)   #Сумма всех 3 строк
+print(suma1)
