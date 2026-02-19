@@ -1,0 +1,43 @@
+ class Uslovie:
+#     def __init__(self, light):
+#         self.light = light
+#     def __bool__(self):
+#         return self.light
+#     def __len__(self):
+#         return 0
+# room_light = Uslovie(True)
+# off_light = Uslovie(False)
+
+# print(bool(room_light))
+# print(bool(off_light))
+
+# if room_light != off_light:
+#     print("Свет горит!")
+# else:
+#     print("Свет выключен.")
+#
+#
+# class Test:
+#     def __bool__(self):
+#         return True
+#
+# test = Test()
+# if test:
+#     print("Hello World")
+
+
+class Test1:
+    def __init__(self, v):
+        self.v = v
+    def __eq__(self, other):
+        return self.v == other.v
+    def __ne__(self, other):
+        return self.v != other.v
+    
+age = Test1(20)
+age_other = Test1(20)
+
+if age == age_other:
+    print("Одинаковый возраст")
+if age != age_other:
+    print("Разный возраст")
