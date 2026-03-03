@@ -1,0 +1,119 @@
+import numpy as np
+
+# a = np.array([1,2,3,4,5,6])
+# print(a)
+#
+# a1 = np.array([[1,2,3,4], [5,6,7,8]]) # 1
+# print(a1)
+#
+# a2 = np.zeros((3,3))  # 2
+# print(a2)
+#
+# a3 = np.ones((2,2))   # 3
+# print(a3)
+
+# a4 = np.arange(1,5,2 )    # 4
+# print(a4)
+#
+# a5 = np.random.random(2) # 5
+# print(a5)
+#
+# c1 = np.random.rand(2)    #6
+# print(c1)
+
+#
+# a6 = np.array({2,2,3,4,5,2, "b",'b'}) #7  {} - это SET убирает все повторяющиеся числа
+# print(a6)
+#
+# a7 = np.array([[1,2,3,4],
+#                [5,6,7,8],
+#                [9,10,11,12]])
+# a8 = a7[0,3]        #8  работает как двумерный массив х1 = вертикальная координата у1 = горизонтальная
+# print(a8)
+#
+# a9 = a7[2 :]    # Получает столб
+# print(a9)
+#
+# a10 = a7.sum()    #9
+# print(a10)
+#
+# b1 = a7[::1, 2:12]      #Срез 2часть после запятой 2-Это диапозон видимости столбца, а 12 это какой по какой оставляет
+# print(b1)
+
+# b2 = np.arange(12)
+# bb2 = b2.reshape(3,4) #10
+# bbb = bb2.T       #11
+# print(bbb)
+#
+# b3 = np.eye(3, 3, 2)      #12
+# print(b3)
+
+# b4 = np.array([1,2,3], [4,5,6])
+# tr = np.array(True,False)
+
+# aa = np.array([1,2,3], dtype='int32')     #13
+# print(aa.dtype)
+
+b5 = np.sort([1,5,2])   #14
+print(b5)
+
+a = np.array([[1,2,3], [4,5,6]])
+b = np.array([[7,8,9], [10,11,12]])
+res = np.stack((a,b),1)     #15
+print(res )
+
+av = np.array([1,2,3,4,5,10,12,13.0])
+print(av.itemsize)      #16
+
+
+mn = np.empty((2, 2))
+print(mn)       #17
+
+v = np.array([1,2,3,4.0,5.1,10])
+h = np.copy(v)      #18
+print(h)
+
+c = np.array([1,2,3,4])
+print(np.prod(c))       #19
+
+
+kor = np.array([100,20,3,4.0,5,25])
+print(np.sqrt(kor))         #20
+
+ab = np.array([1,2,3])
+bc = np.array([1,2,3])
+print(np.array_equal(ab, bc))       #21
+
+print(np.random.randint(1,11, 11))      #22
+
+g = np.full((2, 3), 7)    #Массив наполовину состоит из 0       #23
+print(g)   # [[7 7 7]
+            # [7 7 7]]
+
+y = np.tri(4,4)     #24
+print(y)
+
+ty = np.triu([[1,2,3,4,5],[6,7,8,9,10]]) #       #25
+print(ty)
+
+
+a = np.array([1, 2, 2, 3, 10, 4, 4, 4])
+res = np.unique(a)  #26     #Оставляет только 1 число и сортирует их в порядке возрастания
+print(res)
+
+
+u = np.ndim(a) #27
+print(u)
+
+
+oi = np.outer(7,3)  # 27 Умножает и хранит информацию
+print(oi)
+
+arr1 = np.array([20,3,14,5,6])   #28 Среднее значение
+srednee = np.mean(arr1)
+print(srednee)
+
+arr2 = np.array([10.893, 31.2096,13.7978725,39.232455,64.97262,87.09192])
+print(np.round(arr2, 1))  #29   Округляет равномерно до указанного кол-ва знаков
+
+print(np.array_equal(arr1, arr2))   # 30
