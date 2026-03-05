@@ -1,0 +1,61 @@
+import random
+
+
+vvod = 'Мне подарили 5 конфет'
+# def proverka():
+#     global vvod
+#     st = vvod.split()
+#
+#     col = len(st)
+#     if col >= 4:
+#         print(f"Предложение содержит {col} слова. {vvod}")
+#     else:
+#         print("Предложение не содержит 4 слова")
+#
+#
+#
+#
+#     res = []
+#     res1 = []
+#     alf = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+#
+#     for s in st:
+#         slova = ""
+#         for simvol in s:
+#             if simvol.isdigit():
+#                 slova += random.choice(alf)    # изменяем числа на рандомные слова
+#
+#                 res1.append([vvod.index(simvol),slova])
+#             else:
+#                 ran_num = str(random.randint(1,5))  # изменяем слова на рандомные числа
+#                 slova+=ran_num
+#
+#                 res.append([vvod.index(simvol), ran_num])
+#
+#         print(f"{st} -> {slova}")
+#     print(res1)
+#     print(res)
+# proverka()
+#
+
+
+# def sostav(sim = vvod ,schet = 0):
+#     text = sim
+#     alf = 'АБВГДЕЁЖЗИЙКЛМНОПРСТ'
+#     ran_alf = random.choice(alf)
+#     if schet <= len(sim):
+#         if sim[schet] != " ":
+# 
+#             print(schet)
+#         if text != vvod.isdigit():
+#             print(len(sim), ran_alf)
+
+# sostav()
+# def massiv():
+#     global res
+#     x = int(input("Введите х координату массива = "))
+#     y = int(input("Введите у координату массива = "))
+#     massiv = [[0 for _ in range(x)] for _ in range(y)]
+#     print(f"двумерный массив размером: {x} на {y} ")
+#     for m in massiv:
+#         print(m.append(res))
