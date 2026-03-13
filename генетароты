@@ -1,0 +1,23 @@
+squares = []
+for i in range(10):
+    squares.append(i**2)
+
+
+chislo = random.randint(0,9)
+darr = [[4 if random.randint(0,9)%2==0 else 0] for x in range(3) for y in range(3)]
+for i in darr:
+    print(darr)
+
+numbers = [1, 2, 3, 4, 5]
+ed = ["Четное" if n % 2 == 0 else "Нечетное" for n in numbers]
+print(ed)
+
+numbers = [1, 2, 3, 4]
+sum1 = [(a, b) for a in numbers for b in numbers if (a + b) % 2 == 0]
+print(sum1)
+
+r = [x for x in range(30) if x % 2 == 0 if x % 3 == 0]
+print(r)
+
+a = [x**2 if x < 5 else x for x in range(10) if x % 2 == 0]
+print(a)
