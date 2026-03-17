@@ -1,0 +1,65 @@
+import pandas as pd
+
+mas = pd.array([1,2,3,4,5,"hello","Home"])
+print(mas)
+
+f1 = pd.DataFrame([[10,'ford', 'Builder'],
+                  [20,'Sony', 'Baker'],
+                  [30,'Stan', 'Candle Stick Maker']])
+print(f1)
+
+f = pd.DataFrame([[1,'Bob', 'Builder'],
+                  [2,'Sally', 'Baker'],
+                  [3,'Scott', 'Candle Stick Maker']],
+columns=['id','name', 'occupation'])
+print(f)
+
+a = pd.Series([1,2,3,'hi',4,5,6,'dom','tom'])
+print(a.add(a))
+
+pokaz_per = pd.DataFrame([1,'day',32,476,5,6,12,12,21,42,65])
+print(pokaz_per.head())
+
+pokaz_pos = pd.DataFrame([1,'day',32,476,5,6,13,12,21,42,65])
+print(pokaz_pos.tail())
+print(pokaz_pos.info())
+
+ser = pd.Series([52,'hello', 'World','my', 90,100,' ',1234])
+print(ser.info())
+
+ser1 = pd.DataFrame([1,2,3],[4,5,6])
+print(ser1.describe())
+
+zapolnenie = pd.DataFrame([[11,22,33],
+                          [],
+                           ['hello','We']])
+print(zapolnenie.fillna("prob"))
+
+
+
+print(f.rename(columns={'name':'new_name'}))
+print(f['name'].value_counts())
+
+
+filte = pd.array([1,2,3,4,'zero'])
+
+print(f['id'].nunique())
+print(f.nunique())
+
+
+soedin1 = pd.DataFrame(['My','home','work'])
+soedin2 = pd.DataFrame([9,8,7])
+print(pd.concat([soedin1, soedin2], axis=1))
+
+print('__________')
+print(soedin2.sample())
+
+print('----------------------')
+
+massiv = pd.DataFrame([[12,'svet',110],
+                       [34,'gaz', 110],
+                       [56, 'voda', 110],
+                       ['s',]],
+                      columns = ['code','name','skolko'])
+print(massiv['skolko'].isna().sum())
+print(massiv['skolko'].duplicated())
