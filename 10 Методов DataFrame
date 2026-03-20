@@ -1,0 +1,57 @@
+pokaz_per = pd.DataFrame([1,'day',32,476,5,6,12,12,21,42,65])
+print(pokaz_per.head(2))
+
+pokaz_pos = pd.DataFrame([1,'day',32,476,5,6,13,12,21,42,65])
+print(pokaz_pos.tail(2))
+
+zapolnenie = pd.DataFrame([[11,22,33],
+                        [101],
+                        ['hello','We']])
+print(zapolnenie.fillna("pusto"))
+
+gen_info = pd.DataFrame([[12,'svet',110],
+                       [34,'gaz', ]])
+print(gen_info.describe())
+
+mas_st1 = pd.DataFrame([['Hello', 1, 'World'],
+                        [45, 'My', 'Friends'],
+                        ['Word', 100, 20]],
+                       columns=['str1','str2','str3'],
+                       index=[10,20,30])
+print(mas_st1.loc[30])      #доступ по названиям строк, столбцов
+
+mas = pd.DataFrame([['Hello', 1, 'World'],
+                        [45, 'My', 'Friends'],
+                        ['Word', 100, 20]],
+                       columns=['str1','str2','str3'],
+                       index=[100,200,300])
+print(mas.iloc[0:3, [0,2]])     #доступ по индексам
+
+
+massiv = pd.DataFrame([[12,'svet',110],
+                       [34,'gaz', ],
+                       [56, ]])
+print(massiv.isnull().sum)
+
+groupivka = pd.DataFrame([['Москва', 60000, 21],
+                        ['Чебоксары', 40000, 20],
+                        ['Шумерля', 30000, 19]],
+                       columns=['Город','Зарплата','Возраст'],
+                       index=[100,200,300])
+print(groupivka.groupby('Город')['Зарплата'].mean())
+
+massiv2 = pd.DataFrame([[12,'svet',11],
+                       [24,'gaz', 10 ]])
+print(massiv2.memory_usage(deep=True))      #показывает объем памяти занимаемый каждым столбцом, в байтах
+
+f = pd.DataFrame([[1,'Bob', 35000],
+                  [2,'Sally', 30000],
+                  [3,'Scott', 32000]],
+columns=['id','name', 'plata'])
+print(f['plata'].cummax())
+
+minmum = pd.DataFrame([[1000,30,20],
+                  [1240,30,15],
+                  [1500,30,10]],
+                columns = ['stavka','mesec','procents'])
+print(minmum['stavka'].cummin())
