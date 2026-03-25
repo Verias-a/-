@@ -1,0 +1,10 @@
+res = []
+alf = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ьъ","ы","э","ю","я"]
+cod = [format(i, '05b') for i in range(len(alf))]
+mm = pd.Series(cod, index=list(alf))
+print(mm)
+vvod = input("введите любое кол-во символов = ")
+for bukv in vvod:
+    if bukv in mm:
+        res.append(mm[bukv])
+print(' '.join(res))
