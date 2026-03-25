@@ -1,0 +1,22 @@
+# vvod = input("введите любое кол-во символов = ")
+s = {}
+alf = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ьъ","ы","э","ю","я"]
+mas1 = pd.Series(alf)
+for i in range(len(mas1)):
+    a = bin(i)[2:]
+    # if vvod == alf:
+for c in alf:
+    
+    print(f"{c} -> {bin()[2:]}")
+
+
+    # binna = bin()[2:]
+    # print(vvod)
+
+
+#     # print(bin(x)[2:])
+#     # mas1 = pd.Series({"а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ы","э","ю","я"})
+#     mas = pd.Series({"а":bin(x),"б":bin(x),"в":bin(x),"г":bin(x),"д":bin(x),"е":bin(x),"ж":bin(x),"з":bin(x),"и":bin(x),"й":bin(x),"к":bin(x),"л":bin(x),"м":bin(x),"н":bin(x),"о":bin(x),"п":bin(x),"р":bin(x),"с":bin(x),"т":bin(x),"у":bin(x),"ф":bin(x),"х":bin(x),"ц":bin(x),"ч":bin(x),"ш":bin(x),"щ":bin(x),"э":bin(x),"ю":bin(x),"я":bin(x)})
+#     print((str(mas)))
+# for i in mas1:
+#     print(bin(int(str(i))))
