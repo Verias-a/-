@@ -1,0 +1,44 @@
+from openpyxl import load_workbook
+import pandas as pd
+# from pandas.conftest import dropna
+
+tab = pd.read_excel("1s.xlsx")
+print(tab)
+
+predmet = ['Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']
+print((tab[predmet].mean().mean()))
+
+no_tri = tab[(tab[predmet]!=3).all(axis=1)]
+print(no_tri[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+
+not_stepe = tab[tab['stepen']==0]
+print(not_stepe[['name']])
+
+print('Живут в Шумерля и балл 4.5')
+city = tab[(tab['Город проживания']=='Шумерля') & (tab[predmet].mean(axis=1)>4.5)]
+print(city[['name']])
+
+
+print('Средний бал по всем предметам:')
+
+print((tab[predmet].mean()))
+
+
+print('Иногородние:')
+ne_gorod = tab[(tab['Город проживания']!='Шумерля')]
+print(ne_gorod['name'])
+
+
+
+print('dop1 = повышенная стипендия и те у кого по предметам только 4')
+up_stepen = tab[(tab['stepen']==1200) & (tab[predmet].mean(axis=1)==4)]
+print(up_stepen[['name','stepen','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+
+print("Студенты которым уже есть 18 и их стипендия 0")
+age_stud = tab[(tab['aga']==18) & (tab['stepen']==0)]
+print(age_stud[['name','aga','stepen']])
+
+print('Студенты у которых по 3 предметам четвёрки')
+students_4_Ocenca = tab[(tab[predmet].min(axis=1)==4)]
+
+print(students_4_Ocenca[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
