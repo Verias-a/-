@@ -20,4 +20,4 @@ for i in list1:
 a = pd.Series(list_pustoy)
 tablica['Пропущено занятий в часах: Всего'] = a//2
 if tablica['Пропущено занятий в часах: Всего'] == a//2:
-     a*(range(1,tablica['Пропущено занятий в часах: Всего']))
+     list0.append(1 for i1 in range(1,tablica['Пропущено занятий в часах: Всего']) = a)
