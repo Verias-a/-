@@ -1,0 +1,36 @@
+import pandas as pd
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+
+tablica = pd.read_excel("Ocenki.xlsx")
+
+print("Столбцы в файле:", tablica.columns.tolist())
+sort1 = tablica.sort_values(by=["Компьютерные сети"], ascending=False)
+print(sort1)
+sort2 = tablica.sort_values("Основы алгоритмизации и программирования", ascending=False)
+print(sort2)
+tab_RPM = tablica.sort_values("Разработка программых модулей", ascending=False)
+print(tab_RPM)
+tab_SP = tablica.sort_values("Системное программирование", ascending=False)
+print(tab_SP)
+tab_Srednee = tablica.sort_values("Средний балл", ascending=False)
+print(tab_Srednee)
+tablica["СрБАЛЛ"] = tablica[['Компьютерные сети',"Основы алгоритмизации и программирования","Разработка программых модулей ","Системное программирование","Средний балл",]].mean(axis=1)
+print(tablica)
+list_pustoy = []
+list0 = []
+list1 = list(tablica['Пропущено занятий в часах: Всего'])
+for i in list1:
+    a = i.split(" ")
+    list_pustoy.append(int(a[0]))
+a = pd.Series(list_pustoy)
+tablica['Пропущено занятий в часах: Всего'] = a//2
+if tablica['Пропущено занятий в часах: Всего'] == a//2:
+    list0.append(1 for i1 in range(1,tablica['Пропущено занятий в часах: Всего']))
+
+# print(tablica)
+# list0 = []
+# for two in list1:
+#     razd = two.split(" ")
+#     list0.append(int(a[0]))
+# razd = pd.Series(list0)
