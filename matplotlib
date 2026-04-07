@@ -1,0 +1,120 @@
+import numpy as np
+import pandas as pd
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+
+tablica = pd.read_excel("Ocenki.xlsx")
+
+print("Столбцы в файле:", tablica.columns.tolist())
+sort1 = tablica.sort_values(by=["Компьютерные сети"], ascending=False)
+print(sort1)
+sort2 = tablica.sort_values("Основы алгоритмизации и программирования", ascending=False)
+print(sort2)
+tab_RPM = tablica.sort_values("Разработка программых модулей", ascending=False)
+print(tab_RPM)
+tab_SP = tablica.sort_values("Системное программирование", ascending=False)
+print(tab_SP)
+tablica["СрБАЛЛ"] = tablica[['Компьютерные сети',"Основы алгоритмизации и программирования","Разработка программых модулей","Системное программирование",]].mean(axis=1)
+print(tablica)
+
+x = pd.Series(tablica['Ф.И. Студента'])
+y = tablica.values[:,1]
+fig, ax = plt.subplots(figsize=(12,8))
+ax.plot(x,y,label='Средний балл',color='red')
+ax.bar(x,y,label=tablica['Ф.И. Студента'])
+plt.xticks(rotation=90)
+plt.title('Оценки')
+# plt.legend()
+plt.xlabel('Оценки студентов')
+plt.ylabel('Студенты')
+plt.tight_layout()
+plt.grid()
+plt.show()
+
+
+print("=====================================")
+
+# x = [10,20,30,20,40,50]
+# y = [100,200,300,400,500]
+# plt.hist(x,bins= 15 )
+# plt.title("Гистограмма")
+# plt.xlabel("лет")
+# plt.ylabel("рост")
+# plt.show()
+
+
+# x1 = np.linspace(-5,5,100)
+# y1 =np.linspace(-5,5,100)
+# X,Y = np.meshgrid(x1,y1)
+# Z = np.sin(np.sqrt(X**2 + Y**2))
+# fi = plt.figure()
+# ax = fi.add_subplot(111,projection='3d')
+# ax.plot_surface(X, Y,Z)
+# plt.show()
+
+
+# x1 = np.arange(1,11,1)
+# y = np.sqrt(x1)
+# plt.hist(x1,bins=20, color='orange')
+# plt.plot(x1,y,label='Расход', color='green')
+# plt.xlabel('Время')
+# plt.ylabel('трафик')
+# plt.title('Линейный график')
+# plt.legend()
+# plt.grid()
+# plt.show()
+#
+#
+
+# companys = ['Google','Apple','Microsoft','Nvidia']
+# znach = [250,210,340,160]
+# plt.bar(companys,znach,color='purple',label='Предпочтение покупателей',)
+# plt.ylabel('Популярность')
+# plt.xlabel('Компании')
+# plt.title('Столбчатая диаграмма')
+# plt.show()
+# plt.pie(znach,labels=companys, autopct='%1.1f%%')
+# plt.show()
+
+
+# jkh = ['Еда',"Транспорт","Жильё","Развлечения"]
+# sums = np.random.randint(1,10,4)
+# plt.pie(sums,labels=jkh )
+# plt.title('Круговая диаграмма')
+# plt.legend()
+# plt.show()
+
+# diag = np.random.rand(1000,1000)
+# plt.imshow(diag,cmap="coolwarm", interpolation='nearest')
+# plt.colorbar()
+# plt.title("Карта тепла")
+# plt.show()
+
+
+# x = np.arange(1,13)
+# y1 = np.random.randint(40,240, 12)
+# y2 = np.random.randint(40,240,12)
+# fig, ax = plt.subplots()
+# ax.plot(x,y1, label='Общие продажи', color='blue')
+# ax.scatter(x,y2, label='Пиковые продажи', color='red')
+# ax.bar(x,y1,alpha=0.3, label="Распределение продаж", color='purple')
+# plt.legend()
+# plt.grid()
+# plt.show()
+
+
+# y = [5,2,9]
+# x = [1,1.5,3]
+# X = [4,3.5,6]
+# Y = [7,9,3]
+# plt.stackplot(X,x)
+# fig, ax= plt.subplots(figsize=(10,6))
+#
+# ax.plot(X,Y,label='Первая', color='blue')
+# ax.plot(x,y,label='Вторая', color='red')
+# plt.grid()
+# plt.legend()
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.title('двойная')
+# plt.show()
