@@ -1,0 +1,15 @@
+z1 = 0,0,0
+s1 = 0,-3,3
+z2 = 0,3,-3
+s2 = 0,0,0
+x1 = np.linspace(8,-8)
+y1 = np.linspace(8,-8)
+x= np.linspace(np.pi,-np.pi, 150)
+y = arcsin(x,-x )
+# z = arcsin(x1/2, -x1/2)
+plt.plot(z1,s1,z2,s2, color='blue' )
+plt.plot(x,y,color='red', marker='o')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Arcsin')
+plt.show()
