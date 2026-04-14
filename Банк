@@ -1,0 +1,32 @@
+centro_bank = 0.15
+bank = 10000
+kl1 = 0.22
+kl2 = 0.20
+kl3 = 0.26
+zanim1 = 2000000
+zanim2 = 20000
+zanim3 = 20000000
+for i in range(1,13):
+    print(f"Месяц {i} и сумма {zanim1 * kl1 / 12}")
+    print(f"Месяц {i} и сумма {zanim2 * kl2 / 12}")
+    print(f"Месяц {i} и сумма {zanim3 * kl3 / 12}")
+    print('================')
+    s = zanim1 * kl1 / 12 + zanim2 * kl2 / 12 + zanim3 * kl3 / 12
+    print(f'За {i} Месяц {s}')
+    print('================')
+s = zanim1 * kl1 / 12 + zanim2 * kl2 / 12 + zanim3 * kl3 / 12
+print(s)
+s2 = zanim1 * kl1 + zanim2 * kl2 + zanim3 * kl3
+# print(f'Общая сумма за двенадцать {s2*12} месяцев')
+print(f'Общая сумма за двенадцать {s*12} месяцев')
+# print(f'Общая сумма за двенадцать {s*12*centro_bank - (zanim2+zanim3+zanim1)} месяцев')
+print(f'Сумма которую нужно отдать банку {(zanim2+zanim3+zanim1)*centro_bank}')
+print(f'Итог: {s*12 - (zanim2+zanim3+zanim1)*centro_bank+bank} Осталось')
+# list1 = [s]
+# for i2 in list1:
+#     symma = s+i2
+#     print(symma*12/centro_bank)
+
+print(zanim1 * kl1)
+print(zanim2 * kl2)
+print(zanim3 * kl3)
