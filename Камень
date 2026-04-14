@@ -1,0 +1,24 @@
+m = 1000    # Масса тела
+a = 30      # угол
+u = 20      # скорость
+g = 9.8     # Свободное падение
+rad = radians(a)
+print(rad)
+u0 = (u*1000)/3600  # м/с
+print(np.pow(u0,2))
+S = np.sin(rad*2)*np.pow(u0,2)/g
+print(S)
+t = S/u0
+print(t)
+u0y = u0*np.sin(rad)
+uy = np.pow(u0,2)*np.pow(np.sin(rad),2)/2*g
+print(uy)
+X = np.linspace(0, S,40)
+Y = np.linspace(0, uy,40)
+
+plt.plot(X,Y)
+
+plt.xlabel('Длина')
+plt.ylabel('Высота')
+plt.title('Падающий камень')
+plt.show()
