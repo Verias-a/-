@@ -1,0 +1,110 @@
+import random
+
+vvod = 'Мне подарили 5 конфет'
+
+def proverka():
+    global vvod
+    st = vvod.split()
+
+    col = len(st)
+    if col >= 4:
+        print(f"Предложение содержит {col} слова. {vvod}")
+    else:
+        print("Предложение не содержит 4 слова")
+
+
+    res = []
+    res1 = []
+    alf = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+
+    for s in st:
+        slova = ""
+        for simvol in s:
+            if simvol.isdigit():
+                zamen_alf = random.choice(alf)
+                slova += zamen_alf    # изменяем числа на рандомные слова
+                res1.append([vvod.index(simvol),slova])
+            else:
+                ran_num = str(random.randint(1,5))  # изменяем слова на рандомные числа
+                slova+=ran_num
+                res.append([vvod.index(simvol), ran_num])
+        print(f"{st} -> {slova}")
+    print(res1)
+    print(res)
+proverka()
+
+
+
+
+
+# # # Остальное из заданий 
+
+ slovo = input("_=")
+# preob = list(map(str, slovo))
+# l = []
+# def Prov():
+#     while preob == list:
+#         for i in range(len(preob)):
+#
+#                 print(i)
+#         break
+# Prov()
+#
+# a = slovo.split('.')
+# b = int(len(slovo.split(' '))-1)
+# for i in slovo:
+#     if b == len(i.split()):
+#         if b <= 4:
+#             print(i)
+#         else:
+#             print("not 4 predloj")
+#         continue
+#     print(f"{b}, {i}")
+#
+#     print("prodo")
+
+
+#
+# def random_pred():
+#     pred = input("Предложение не менее 4 слов = ")
+#     return pred
+#
+# def proverka(stri):
+#     while int(stri):
+#         return True
+#     else:
+#         return False
+#
+# def random_rus_alf():
+#     alf_bukv = ["абвгдежзийклмнопрстуфх"]
+#     rus_b = random.choice(alf_bukv)
+#     return rus_b
+#
+# def simbols(stroki):
+#     if proverka(stroki):
+#         num = int(stroki)
+#         if 1<=num<= 5:
+#             for i in range(num):
+#                 return ''.join(random_rus_alf())
+#         else:
+#             return str(len(stroki))
+#     else:
+#         return str(len(stroki))
+#
+#
+# def massiv(a,b):
+#     print("Укажите необходимый размер массива!")
+#     a = int(input("Ширина массива = "))
+#     b = int(input("Длина массива = "))
+#     mas = [[0 for _ in range(a)]]
+#     for _ in range(b):
+#         print(mas)
+# massiv(4,4)
+#
+#
+# def main():
+#     stroki = random_pred()
+#     sim = simbols(stroki)
+#     print(f"Предложение : {sim}")
+#     print(f"Количество слов: {len(stroki)}")
+#     print(f"Размер массива {massiv} ")
