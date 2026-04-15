@@ -1,0 +1,77 @@
+tab = pd.read_excel("1s.xlsx")
+# print(tab)
+#
+# predmet = ['Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']
+# print((tab[predmet].mean().mean()))
+#
+# no_tri = tab[(tab[predmet]!=3).all(axis=1)]
+# print(no_tri[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+#
+# not_stepe = tab[tab['stepen']==0]
+# print(not_stepe[['name']])
+#
+# print('Живут в Шумерля и балл 4.5')
+# city = tab[(tab['Город проживания']=='Шумерля') & (tab[predmet].mean(axis=1)>4.5)]
+# print(city[['name']])
+#
+#
+# print('Средний бал по всем предметам:')
+#
+# print((tab[predmet].mean()))
+#
+#
+# print('Иногородние:')
+# ne_gorod = tab[(tab['Город проживания']!='Шумерля')]
+# print(ne_gorod['name'])
+#
+#
+#
+# print('dop1 = повышенная стипендия и те у кого по предметам только 4')
+# up_stepen = tab[(tab['stepen']==1200) & (tab[predmet].mean(axis=1)==4)]
+# print(up_stepen[['name','stepen','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+#
+# print("Студенты которым уже есть 18 и их стипендия 0")
+# age_stud = tab[(tab['aga']==18) & (tab['stepen']==0)]
+# print(age_stud[['name','aga','stepen']])
+#
+# print('Студенты у которых по 3 предметам четвёрки')
+# students_4_Ocenca = tab[(tab[predmet].min(axis=1)==4)]
+#
+# print(students_4_Ocenca[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+import math
+
+
+
+
+import numpy as np
+import pandas as pd
+# pd.set_option('display.max_rows', None)
+# pd.set_option('display.max_columns', None)
+#
+# tablica = pd.read_excel("Ocenki.xlsx")
+#
+# print("Столбцы в файле:", tablica.columns.tolist())
+# sort1 = tablica.sort_values(by=["Компьютерные сети"], ascending=False)
+# print(sort1)
+# sort2 = tablica.sort_values("Основы алгоритмизации и программирования", ascending=False)
+# print(sort2)
+# tab_RPM = tablica.sort_values("Разработка программых модулей", ascending=False)
+# print(tab_RPM)
+# tab_SP = tablica.sort_values("Системное программирование", ascending=False)
+# print(tab_SP)
+# tablica["СрБАЛЛ"] = tablica[['Компьютерные сети',"Основы алгоритмизации и программирования","Разработка программых модулей","Системное программирование",]].mean(axis=1)
+# print(tablica)
+#
+# x = pd.Series(tablica['Ф.И. Студента'])
+# y = tablica.values[:,1]
+# fig, ax = plt.subplots(figsize=(12,8))
+# ax.plot(x,y,label='Средний балл',color='red')
+# ax.bar(x,y,label=tablica['Ф.И. Студента'])
+# plt.xticks(rotation=90)
+# plt.title('Оценки')
+# # plt.legend(labels='Средний балл')
+# plt.xlabel('Оценки студентов')
+# plt.ylabel('Студенты')
+# plt.tight_layout()
+# plt.grid()
+# plt.show()
