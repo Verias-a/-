@@ -1,0 +1,24 @@
+class Weather:
+    def show(self):
+        self.t = [-4, 2, -6, 5]
+        self.vlaj = [75, 84, 78, 87]
+        self.snow = [10, 8, 4, 6]
+        self.veter = [5 ,8, 6, 9]
+        self.davlenie = [754,757,752,760]
+        self.day = ["Пн", "Вт", "Ср", "Чт"]
+        print("=====Погода за 4 дня=====")
+
+        for i in range(4):
+            print(f"{self.day[i]}: {self.t[i]}C, {self.vlaj[i]}%, снег {self.snow[i]}см, ветер {self.veter[i]}м/с, давление{self.davlenie[i]}мм рт. ст.")
+        print("---Результаты Прогноза---")
+        print(f"Максимальная t: {np.max(self.t)}C")
+        print(f"Минимальная t: {np.min(self.t)}C")
+        print(f'Максимальное давление: {np.max(self.davlenie)}')
+        print(f'Минимальное давление: {np.min(self.davlenie)}')
+        print(f"Максимальный ветер: {np.max(self.veter)}")
+        print(f"Минимальный ветер: {np.min(self.veter)}")
+        print(f"Cредняя влажность: {np.mean(self.vlaj)}")
+        print(f"Cредняя толщина снежного покрова: {np.mean(self.snow)}")
+        print("==="*10)
+w = Weather()
+w.show()
