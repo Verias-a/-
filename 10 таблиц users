@@ -1,0 +1,9 @@
+from tabulate import tabulate
+import json
+import urllib.request
+import requests
+
+file = urllib.request.urlopen('https://jsonplaceholder.typicode.com/users')
+html = json.load(file)
+# fancy_grid
+print(tabulate(html,headers='keys',tablefmt='pipe',numalign='center',colalign=("center","left","center","left","left","center","center","left"),))
