@@ -1,0 +1,8 @@
+punkt = input("Введите нужный вам населенный пункт = ")
+# ширина долгота = {'lon': 46.4129, 'lat': 55.5005}
+file1 = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={punkt},RU&units=metric&lang=ru&appid=2b90dadc5b61311fdf9aee571ac8282b")
+file_punkt = file1.json()
+print(f"{file_punkt['name']}: долгота {file_punkt['coord']['lon']}, широта {file_punkt['coord']['lat']}")
+print(f"{file_punkt['name']}: {file_punkt['main']['temp']}°C, {file_punkt['weather'][0]['description']}")
+print(f"{file_punkt['name']}: скорость ветра {file_punkt['wind']["speed"]}м/с, порыв ветра {file_punkt['wind']['gust']}м/с, направление ветра {file_punkt['wind']['deg']}°, атмосферное давление ур моря {file_punkt['main']['pressure']/1.33}, влажность {file_punkt['main']["humidity"]}%")
+print(f"Ощущается как {file_punkt['main']['feels_like']}°, мин темп {file_punkt['main']['temp_min']}°C, макс темп {file_punkt['main']['temp_max']}°C, видимость {file_punkt['visibility']}м, Облачность {file_punkt['clouds']['all']}%")
