@@ -1,70 +1,51 @@
-# m = int(input('Введите число для начала = '))
-# n = int(input('Введите число для конца = '))
-# def proverka():
-#     while True:
-#         m1 = m
-#         n1 = n
-#         if 0 <= m1 <= n1 <= 30000:
-#             print(f"первое {m1} и второе {n1}")
-#             break
-#         else:
-#             print("Недопустимое кол-во чисел или число")
-#             break
-# proverka()
-#
-# def summa_ch(o):
-#     a = 0
+# def prog(o):
+#     s = 0
 #     for i in str(o):
-#         s = int(i)
-#         if s>0:
-#             if s % 2 == 0:
-#                 a+=s
-#     return a
+#         ch = int(i)
+#         # if ch%2==1:
+#         #     print(0)
+#         #     break
+#         # if ch%2==2:
+#         #     print(0)
+#         #     break
+#         if ch%2==0 and ch>0:
+#             s+=ch
+#     return s
 #
-# def max_ch(m,n):
+# m,n = map(int, input('Введите число = ').split())
+#
+# def prov(m,n):
+#     #if 0 <= m <= n <= 30000:
 #     res = 0
-#     for i in range(m,n+1):
-#         b = summa_ch(i)
-#         if b>0:
-#             if b%3==0:
-#                 res=i
+#     for max_ch in range(m,n  +1):
+#         a = prog(max_ch)
+#         if a > 0 :
+#             if a%3==0:
+#
+#                 res = max_ch
 #     return res
-# max_ch(m,n)
-# print(max_ch(m,n))
-def vod():
-    while True:
-        a = 0
-        l = []
-        n = input('введите двузначное число = ')
-        if int(n)<=1000:
-            for i in str(n):
-                b=int(i)
-                print(b)
-            break
-                # a=b
-                # print(a*a)
-                # print("Допустимое")
-        else:
-            print("Недопустимое")
-            break
+# print(prov(m,n))
 
 
-    s=0
-    # n = input('введите двузначное число = ')
-    list1 = []
 
-    a = int(n)//10
-    b = int(n)%10
-    print(a*b)
-    c = a*b
-    if a*b==c:
-        for i in range(len(str(c))):
-            print(f"{n}: {a}*{b} = {c} | {i+1}")
-            # list1.append(max(str(i+1)))
-            # print(list1)
-            print(f"{c}: {i+1}")
+n = input('введите двузначное число = ')
+s = [0] *1000
+vvod = n.split()
+for i in vvod:
+    # a = int(i[0])
+    # b = int(i[1])
+    # c = int(i) // 10
+    # d = int(i) % 10
+    perevod = int(i)
+    rez = (perevod//10)*(perevod%10)
+    s[rez] += 1
+    if perevod <= 1000:
+        print('Входит')
     else:
-        for j in range(len(str(c))):
-            print(f"{n}: {a}*{b} = {c} | {j+1}")
-            print(f"{c} | {max(str(j+1))}")
-vod()
+        print("Не входит")
+
+for i2 in s:
+    result = s[0]
+    if i2 > result:
+        result = i2
+        print(f"{n}: {result}")
