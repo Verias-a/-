@@ -1,0 +1,75 @@
+n,k,m = map(int,input("Введите значения ="))
+max_ch = 0
+if (1<=n<=100, 0<=k<=50, 0<=m<=50):
+    print(n,k,m)
+
+    for i in range(n):
+        max_ch = max_ch*9+8
+        # print(max_ch)
+    if max_ch % 2 != 0:
+        max_ch -= 1
+
+    min_ch=1
+    for ch in range(n-1):
+        min_ch= min_ch*9
+        print(min_ch)
+
+    a = max_ch
+    # while a >=min_ch:
+
+    res = 8*(9**(n-1))+k*9**2 + m*9
+    print(res)
+    # b = ''
+    # b = str(n*9**3 + k*9**2 + m*9+0)+b
+    # print(b)
+
+    # start = int('8' * n, 9)
+    # for num in range(start, 9**(n-1)-1,-1):
+    #     print(num)
+
+        # t = ch
+        # n = []
+        # while t>0:
+        #     n.append(t%9)
+        #     t//=9
+        # if ch==0:
+        #     n = [0]
+        # n.reverse()
+        #
+        # res = ''
+        # for rez in n:
+        #     res+=str(rez)
+        # result = res
+        # break
+
+
+
+    # res = int('8' * n, 9)
+    # print(res)
+    # for a in range(res,-1,-1):
+    #     if res % 2 != 0:
+    #         continue
+    #     trio = a
+    #     sys_tri = []
+    #     if trio==0:
+    #         sys_tri = [0]
+    #     else:
+    #         if trio>0:
+    #             sys_tri.append(trio%3)
+    #             trio//=3
+    #         sys_tri.reverse()
+    #
+    #         ne =[]
+    #         trio = a
+    #         if trio==0:
+    #             ne = [0]
+    #         else:
+    #             while trio>0:
+    #                 ne.append(trio%9)
+    #                 trio//=9
+    #             ne.reverse()
+    #
+    #         rezultat = ''
+    #         for d in ne:
+    #             rezultat+=str(d)
+    #         break
