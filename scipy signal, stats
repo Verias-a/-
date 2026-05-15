@@ -1,0 +1,98 @@
+from scipy import signal
+from scipy.signal import chirp, spectrogram
+
+x = np.arange(9).reshape(3,3)
+domain = np.identity(3)
+# print(x, end='nn')
+print(signal.order_filter(x, domain, 2))
+
+# a = np.linspace(6,10,120)
+# b = chirp(a, f0=5,f1=-2, t1=-6,method='linear')
+# plt.plot(a,b)
+# print()
+# plt.grid()
+# plt.title("")
+# plt.xlabel('Время в (секундах)')
+# plt.show()
+
+
+import scipy.stats as sps
+import numpy as np
+from scipy.stats import uniform
+import matplotlib.pyplot as plt
+# sample = sps.norm(loc=1, scale=3).rvs(size=200)
+# print('Первые 10 значений выборки:\n', sample[:10])
+# print('Выборочное среднее: %.3f' % sample.mean())
+# print('Выборочная дисперсия: %.3f' % sample.var())
+# plt.plot(sample,)
+# plt.show()
+
+
+# y = np.linspace(2,10,10)
+# show_pdf = sps.norm.pdf(x=y,xmin=-0.5, xmax=-1.5, ymax= 2,loc=0, scale= 1, grid_size=100)
+# plt.plot(show_pdf,y)
+# plt.grid()
+# plt.show()
+
+
+# sample = sps.norm.rvs(size=1000)  # выборка размера 1000
+# grid = np.linspace(-3, 3, 1000)  # сетка для построения графика
+# plt.figure(figsize=(10, 4))
+# plt.hist(sample, bins=30, density=True,alpha=0.6, label='Гистограмма выборки')
+# plt.plot(grid, sps.norm.pdf(grid), color='red',lw=5, label='Плотность случайной величины')
+# plt.title(r'Случайная величина $\xi \sim \mathcal{N}$(0, 1)', fontsize=20)
+# plt.legend(fontsize=14, loc=1)
+# plt.grid(ls=':')
+# plt.show()
+#
+#
+# grid = np.linspace(-7, 7, 1000)  # сетка для построения графика
+# loc_values = [2, -3, 1]  # набор значений параметра a
+# sigma_values = [3, 3, 3]  # набор значений параметра sigma
+# plt.figure(figsize=(12, 6))
+#
+# plt.plot(grid, sps.norm(loc_values, sigma_values).pdf(grid), lw=5,
+#     label='$\mathcal{N}' + '({}, {})$'.format(loc_values, sigma_values))
+#
+# plt.legend(fontsize=16)
+# plt.title('Плотности нормального распределения', fontsize=20)
+# plt.xlabel('Значение', fontsize=18)
+# plt.ylabel('Плотность', fontsize=18)
+# plt.grid(ls=':')
+# plt.show()
+
+grid = np.linspace(-3, 3, 10001)  # сетка для построения графика
+sample = sps.uniform.rvs(size=1000)  # выборка размера 1000
+
+plt.figure(figsize=(10, 4))
+plt.hist(sample,  bins=40, density=True, alpha=0.6, label='Гистограмма случайной величины')
+plt.plot(grid, sps.uniform.pdf(grid), color='red', lw=5, label='Плотность случайной величины')
+plt.title(r'Случайная величина $\xi\sim U(0, 1)$', fontsize=20)
+plt.xlim(-0.5, 1.5)
+plt.legend(fontsize=14, loc=1)
+plt.grid(ls=':')
+plt.show()
+
+grid1 = np.linspace(-5,5,1001)
+sample1 = sps.uniform.rvs(size=1000)
+plt.hist(sample1, bins=35,density=True)
+plt.plot(grid1,sps.uniform.pdf(grid1), color='purple', lw=5)
+plt.xlim(-0.5,1.5)
+plt.show()
+
+
+grid = np.linspace(-3, 7, 1000)  # сетка для построения графика
+loc_values = [0, 0, 4]  # набор значений параметра a
+scale_values = [1, 2, 1]  # набор значений параметра scale
+plt.figure(figsize=(12, 6))
+for i, (loc, scale) in enumerate(zip(loc_values, scale_values)):  # Разница почему не работает в том, что scale,loc_values находится в Листе, а не в Числе!
+    print(loc, scale)
+    plt.plot(grid, sps.uniform(loc, scale).pdf(grid), lw=5, alpha=0.7,
+             label='$U' + '({}, {})$'.format(loc, scale))
+
+plt.legend(fontsize=16)
+plt.title('Плотности равномерного распределения', fontsize=20)
+plt.xlabel('Значение', fontsize=18)
+plt.ylabel('Плотность', fontsize=18)
+plt.grid(ls=':')
+plt.show()
