@@ -1,0 +1,60 @@
+import plotly.graph_objects as go
+import plotly.express as px
+import calendar
+
+# df = px.data.gapminder().query("continent == 'Europe'")
+# fig = px.bar(df, x='year', y='pop',hover_data=['lifeExp', 'gdpPercap'], color='lifeExp',labels={'pop':'Население Европы','lifeExp':'Уровень жизни', 'year':'Год','gdpPercap':'ВВП на душу населения'}, height=400)
+# fig.show()
+# df1 = px.data.gapminder().query("country == 'Japan'")
+# fig1 = px.bar(df1, x='year',y='pop',hover_data=['lifeExp', 'gdpPercap'], color='lifeExp',labels={'pop':'Население Японии', 'lifeExp':'Уровень жизни', 'year':'Год','gdpPercap':'ВВП на душу населения'}, height=400)
+# fig1.show()
+
+
+# dates = px.data.stocks()
+# fig =px.histogram(dates,y='date')
+# fig.update_layout(bargap=0.2)
+# fig.show()
+
+
+# karta = px.data.gapminder()
+# fig = px.scatter(karta.query("year==2007"), x="gdpPercap", y="lifeExp",
+# 	         size="pop", color="continent",
+#                  hover_name="country", log_x=True, size_max=100, labels={'pop':'Население', 'lifeExp':'Уровень жизни', 'year':'Год', 'continent':'Континент','gdpPercap':'ВВП на душу населения'})
+# fig.show()
+#
+#
+# fig5 = go.Figure(data=[go.Scatter(x=[1, 2, 3, 4], y=[10, 11, 12, 13],mode='markers')
+# ])
+# fig5.show()
+
+# animat = px.data.gapminder()
+# an = px.scatter(animat, x="gdpPercap", y="lifeExp", animation_frame="year", animation_group="country",
+#            size="pop", color="continent", hover_name="country",
+#            log_x=True, size_max=55, range_x=[100,100000], range_y=[25,90], labels={'pop':'Население', 'lifeExp':'Уровень жизни', 'year':'Год', 'continent':'Континент','gdpPercap':'ВВП на душу населения' })
+# an.show()
+
+import time
+import datetime
+import calendar
+# print(locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8'),calendar.calendar(1),calendar.month(2026,5),calendar.weekday(2026,5,17))
+user = input("Хотите посмотреть календарь? да/нет? = ")
+if user == 'да':
+    print(locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')[15:],calendar.calendar(1))
+else:
+    pass
+user_year = int(input("Введите год желаемого календаря = "))
+user_month = int(input("Введите месяц = "))
+if 1<=user_month<=12:
+    print("подождите...")
+    time.sleep(3)
+    print(locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')[15:],calendar.month(user_year,user_month))
+print("Тогда...")
+
+days_in_month = calendar.monthrange(user_year,user_month)[1]
+# print(locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')[15:],calendar.month(user_year,user_month))
+print(f'Дней в этом месяце {days_in_month}')
+today_data = datetime.datetime.now()
+print(f"Сегодня | время: {today_data}")
+days_ost = datetime.datetime(2026, 6, 30)
+end_semestr = days_ost - today_data
+print(f'Осталось дней до конца семестра = ({end_semestr})')
