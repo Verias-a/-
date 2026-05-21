@@ -1,0 +1,53 @@
+host = '127.0.0.1' # 'localhost' можно так
+port = 8888    # обязательно совпадает с клиентом
+TCP = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # TCP
+TCP.bind((host, port))
+TCP.listen()
+print('Ожидание подключения')
+to_client, adres = TCP.accept()
+if to_client:
+    print(f"Подключение от {adres}")
+    while True:
+        data = to_client.recv(1024)
+        print(f"Получено от клиента: {data.decode('utf-8')}")
+        to_client.send("Сервер прочитал сообщение".encode("utf-8"))
+        to_client.close()
+
+
+
+host ='127.0.0.1'
+port = 8888
+with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as client:
+    client.connect((host,port))
+    print("Установка соединения с сервером")
+    client.send(b'Hello,Server, I client')
+    data = client.recv(1024)
+print(f'Получено от сервера: {data.decode('utf-8')}')
+client.close()
+
+
+
+
+# host = 'localhost'
+# port = 7777
+# server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+# server.bind((host,port))
+#
+# print('Сервер запущен')
+# while True:
+#     clienta,adres2 = server.recvfrom(1024)
+#     print(f"Получено сообщение {adres2}: {clienta.decode('utf-8')}")
+#     server.sendto("Связь установлена".encode('utf-8'),adres2)
+
+
+# host = 'localhost'
+# port = 7777
+# client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# print("Клиент отправил сообщение")
+# client.connect((host,port))
+# # Отправка данных
+# client.sendto("Привет, сервер".encode('utf-8'), (host,port))
+# # Получение ответа
+# data, addr = client.recvfrom(1024)
+# print(f"Ответ сервера: {data.decode('utf-8')}")
+# client.close()
