@@ -1,0 +1,55 @@
+class Calendar:
+    def __init__(self,year,month):
+        self.year = year
+        self.month = month
+
+    def Year(self):
+        print("Год Календаря:")
+        y = calendar.calendar(self.year)
+        return y
+
+    def Month(self):
+        print("Календарь на месяц:")
+        m = calendar.month(self.year,self.month)
+        if 1<=month<=12:
+            return m
+
+    def Year_visokokosniy(self):
+        print("Календарь для високосного года:")
+        y_viso = calendar.isleap(self.year)
+        return y_viso
+
+    def Col_days(self):
+        print("Количество дней в месяце:")
+        col_d = calendar.monthrange(self.year,self.month)[1] #кортеж
+        return col_d
+
+    def segonya(self):
+        day_data = datetime.datetime.now()
+        return day_data
+
+
+year = int(input("Укажите год = "))
+month = int(input("Введите месяц = "))
+vvod = Calendar(year,month)
+print(vvod.Year())
+print("========"*10)
+print(vvod.Month())
+print("========"*10)
+print(vvod.Col_days())
+print("========"*10)
+print("Хотите узнать сегодня число и время? да/нет")
+user = input("Ответить: ")
+if user == "да":
+    print(f"Сегодня: {vvod.segonya()}")
+else:
+    pass
+
+print("========"*10)
+
+print("Проверить является год високосным? ответ: да/нет")
+user2 = input("Ответить: ")
+if user2 == "да":
+    print(vvod.Year_visokokosniy())
+else:
+    pass
