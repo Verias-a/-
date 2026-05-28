@@ -1,0 +1,68 @@
+# СЕРВЕР
+
+# import client
+res = []
+ch = 0
+ne_ch = 0
+
+host = '127.0.0.1'     # 'localhost' можно так IP адрес
+port = 7777        # обязательно адресуется по конкретному порту
+TCP = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # TCP соединение 
+TCP.bind((host, port))     # привязываем сокет к определенному порту
+TCP.listen()     # сервер переводится в режим соединений(послушивания) по TCP 
+print('Ожидание подключения... ')
+client, adres = TCP.accept()     # принимает входящее соединение и возвращается новый сокет и адрес клиента
+if client:
+    print(f"Подключение от {adres}")     # Подключается к серверу определенный клиент
+    while True:
+        data = client.recv(1024)
+        print(f"Получено от клиента: {data.decode('utf-8')}") 
+        break
+    str_num = data.decode('utf-8')
+    num = int(str_num)
+    while num > 0:    # Пока число больше 0 будем проверять на четные и нечетные
+        if num % 2 == 0:
+            ch += 1
+        else:
+            ne_ch += 1
+        num -= 1
+
+    print(f"Количество: четных = {ch}, нечетных = {ne_ch}")
+    client.send(f"Сервер отправил: Сумма нечетных = {ne_ch}, сумма четных = {ch}".encode("utf-8"))  # Сервер отправил:
+
+client.close()
+if __name__ == "__client__":
+    print('Начало')
+
+
+
+
+# КЛИЕНТ
+
+# import main
+
+host = '127.0.0.1'
+port = 7777
+Tcp = socket.socket(socket.AF_INET,socket.SOCK_STREAM)    # TCP соединение 
+Tcp.connect(("127.0.0.1",7777))    # устанавливает соединение с удалённым сервером.
+print("Подключился к серверу!")
+
+# обмениваемся сообщениями
+vvod = input("Введите число или слово <выход> : ") # Вводим число или выходим из соединения с сервером
+bytes_vvod = vvod.encode('utf-8')
+
+while True:
+    # Tcp.sendall(vvod)
+    Tcp.sendto(bytes_vvod, (host, port)) # Кодируем русский текст в байты и отправляем
+    if vvod != 'выход': # Если нужно завершить соединение пишем "выход" и выходим или число тогда продолжаем
+        pass
+    else:
+        print('Вы вышли')
+        Tcp.close()
+        break
+    otvet = Tcp.recv(1024) # Получаем ответ от сервера
+    print(f"{otvet.decode('utf-8')}") # выводим ответ из байтов в текст
+Tcp.close() # закрываем соединение
+
+# if __name__ == "__main__":
+#     print('Начали')
