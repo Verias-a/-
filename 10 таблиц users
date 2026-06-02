@@ -7,3 +7,5 @@ file = urllib.request.urlopen('https://jsonplaceholder.typicode.com/users')
 html = json.load(file)
 # fancy_grid
 print(tabulate(html,headers='keys',tablefmt='pipe',numalign='center',colalign=("center","left","center","left","left","center","center","left"),))
+print(html[0:3]) # выводим 3-их пользователей
+print(html[0]['name']) # имя 1-ого usera
