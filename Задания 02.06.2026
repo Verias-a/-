@@ -1,0 +1,168 @@
+centro_bank = 0.15
+bank = 10000
+kl1 = 0.22
+kl2 = 0.20
+kl3 = 0.26
+zanim1 = 2000000
+zanim2 = 20000
+zanim3 = 20000000
+for i in range(1,13):
+    print(f"Месяц {i} и сумма {zanim1 * kl1 / 12}")
+    print(f"Месяц {i} и сумма {zanim2 * kl2 / 12}")
+    print(f"Месяц {i} и сумма {zanim3 * kl3 / 12}")
+    print('================')
+    s = zanim1 * kl1 / 12 + zanim2 * kl2 / 12 + zanim3 * kl3 / 12
+    print(f'За {i} Месяц {s}')
+    print('================')
+s = zanim1 * kl1 / 12 + zanim2 * kl2 / 12 + zanim3 * kl3 / 12
+print(s)
+s2 = zanim1 * kl1 + zanim2 * kl2 + zanim3 * kl3
+# print(f'Общая сумма за двенадцать {s2*12} месяцев')
+print(f'Общая сумма за двенадцать {s*12} месяцев')
+# print(f'Общая сумма за двенадцать {s*12*centro_bank - (zanim2+zanim3+zanim1)} месяцев')
+print(f'Сумма которую нужно отдать банку {(zanim2+zanim3+zanim1)*centro_bank}')
+print(f'Итог: {s*12 - (zanim2+zanim3+zanim1)*centro_bank+bank} Осталось')
+# list1 = [s]
+# for i2 in list1:
+#     symma = s+i2
+#     print(symma*12/centro_bank)
+
+print(zanim1 * kl1)
+print(zanim2 * kl2)
+print(zanim3 * kl3)
+
+
+print('---------' *5)
+
+
+res = []
+alf = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ьъ","ы","э","ю","я"]
+cod = [format(i+1, '05b') for i in range(len(alf))]
+mm = pd.Series(cod, index=alf)
+print(mm)
+vvod = input("введите любое кол-во символов = ")
+for bukv in vvod:
+    if bukv in mm:
+        res.append(mm[bukv])
+print(' '.join(res))
+
+
+print('---------' *5)
+
+
+# СЕРВЕР
+
+# import client
+res = []
+ch = 0
+ne_ch = 0
+
+host = '127.0.0.1'     # 'localhost' можно так IP адрес
+port = 7777        # обязательно адресуется по конкретному порту
+TCP = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # TCP соединение 
+TCP.bind((host, port))     # привязываем сокет к определенному порту
+TCP.listen()     # сервер переводится в режим соединений(послушивания) по TCP 
+print('Ожидание подключения... ')
+client, adres = TCP.accept()     # принимает входящее соединение и возвращается новый сокет и адрес клиента
+if client:
+    print(f"Подключение от {adres}")     # Подключается к серверу определенный клиент
+    while True:
+        data = client.recv(1024)
+        print(f"Получено от клиента: {data.decode('utf-8')}") 
+        break
+    str_num = data.decode('utf-8')
+    num = int(str_num)
+    while num > 0:    # Пока число больше 0 будем проверять на четные и нечетные
+        if num % 2 == 0:
+            ch += 1
+        else:
+            ne_ch += 1
+        num -= 1
+
+    print(f"Количество: четных = {ch}, нечетных = {ne_ch}")
+    client.send(f"Сервер отправил: Сумма нечетных = {ne_ch}, сумма четных = {ch}".encode("utf-8"))  # Сервер отправил:
+
+client.close()
+if __name__ == "__client__":
+    print('Начало')
+
+
+
+
+# КЛИЕНТ
+
+
+# import main
+
+host = '127.0.0.1'
+port = 7777
+Tcp = socket.socket(socket.AF_INET,socket.SOCK_STREAM)    # TCP соединение 
+Tcp.connect(("127.0.0.1",7777))    # устанавливает соединение с удалённым сервером.
+print("Подключился к серверу!")
+
+# обмениваемся сообщениями
+vvod = input("Введите число или слово <выход> : ") # Вводим число или выходим из соединения с сервером
+bytes_vvod = vvod.encode('utf-8')
+
+while True:
+    # Tcp.sendall(vvod)
+    Tcp.sendto(bytes_vvod, (host, port)) # Кодируем русский текст в байты и отправляем
+    if vvod != 'выход': # Если нужно завершить соединение пишем "выход" и выходим или число тогда продолжаем
+        pass
+    else:
+        print('Вы вышли')
+        Tcp.close()
+        break
+    otvet = Tcp.recv(1024) # Получаем ответ от сервера
+    print(f"{otvet.decode('utf-8')}") # выводим ответ из байтов в текст
+Tcp.close() # закрываем соединение
+
+# if __name__ == "__main__":
+#     print('Началo')
+
+
+
+
+print('---------' *5)
+
+
+
+
+from openpyxl import load_workbook
+import pandas as pd
+
+
+tab = pd.read_excel("1s.xlsx")
+print(tab)
+
+predmet = ['Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']
+
+no_tri = tab[(tab[predmet]!=3).all(axis=1)]
+print(no_tri[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+
+not_stepe = tab[tab['stepen']==0]   # Нет стипендии
+print(not_stepe[['name']])
+
+print('Живут в Шумерля и балл 4.5')
+city = tab[(tab['Город проживания']=='Шумерля') & (tab[predmet].mean(axis=1)>4.5)]
+print(city[['name']])
+
+
+print('Средний бал по всем предметам:')
+print((tab[predmet].mean()))
+
+print('Иногородние:')
+ne_gorod = tab[(tab['Город проживания']!='Шумерля')]
+print(ne_gorod['name'])
+
+print('dop1 = повышенная стипендия и те у кого по предметам только 4')
+up_stepen = tab[(tab['stepen']==1200) & (tab[predmet].mean(axis=1)==4)]
+print(up_stepen[['name','stepen','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
+
+print("Студенты которым уже есть 18 и их стипендия 0")
+age_stud = tab[(tab['aga']==18) & (tab['stepen']==0)]
+print(age_stud[['name','aga','stepen']])
+
+print('Студенты у которых по 3 предметам четвёрки')
+students_4_Ocenca = tab[(tab[predmet].min(axis=1)==4 )]
+print(students_4_Ocenca[['name','Предмет1','Предмет2','Предмет3','Предмет4','Пердемет5']])
